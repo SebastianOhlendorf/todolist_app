@@ -17,37 +17,42 @@ app.get("/", (req, res) => {
 app.post("/submit", (req, res) => {
 
   const newData = req.body.text;
-  todos.push(newData);
-  console.log("aktuelle Arrayliste: " + todos);
+
+  if (typeof newData === "string" && newData.length === 0) {
+    todos.push(newData);
+    console.log("aktuelle Arrayliste: " + todos);
+  }
 
   res.redirect('/');
-
 });
 
 app.post("/remove", (req, res) => {
 
   const newData = req.body.text;
-  todosCompleted.push(newData);
+
+  if (typeof newData === "string" && newData.length === 0) {
+    todosCompleted.push(newData);
   console.log("completed Arrayliste: " + todosCompleted);
 
   // Remove the element with value from the body from the array
   removeElementFromArray(todos, newData);
   console.log("new Arrayliste: " + todos);
+  }
 
   res.redirect('/');
-
 });
 
 app.post("/delete", (req, res) => {
 
   const newData = req.body.text;
 
-  // Remove the element with value from the body from the array
+  if (typeof newData === "string" && newData.length === 0) {
+    // Remove the element with value from the body from the array
   removeElementFromArray(todosCompleted, newData);
   console.log("new completed Arrayliste: " + todosCompleted);
+  }
 
   res.redirect('/');
-
 });
 
 app.listen(port, () => {
