@@ -22,30 +22,6 @@ h1 {
     font-size: 3.5rem;
 }
 
-#button {
-    appearance: none;
-    -webkit-appearance: none;
-    width: 7em;
-    height: 5em;
-    border: 0;
-    font-size: 0.9rem;
-    background: #888;
-    color: white;
-    cursor: pointer;
-}
-
-#text {
-    appearance: none;
-    -webkit-appearance: none;
-    width: 15em;
-    height: 5em;
-    border: 0;
-    font-size: 0.9rem;
-    background: #888;
-    color: white;
-    cursor: pointer;
-}
-
 footer {
     position: absolute;
     bottom: 0;
@@ -53,10 +29,12 @@ footer {
 
 ul {
     list-style: none;
+    padding: 0;
 }
 
 .container {
     display: flex;
+    width: auto;
     margin-top: 50px;
 }
 
@@ -67,12 +45,45 @@ ul {
     margin: 10px;
 }
 
+
 .left-box,
 .right-box {
     margin: 10px;
-    padding: 50px;
+    padding: 25px;
+    height: 500px;
+    width: auto;
     flex: 1;
     /* Make both boxes take up equal width */
+}
+
+form {
+    width: 300px;
+    /* Adjust the form width as needed */
+    display: flex;
+}
+
+input[type="text"] {
+    flex: 3;
+    /* 80% of the total width */
+    box-sizing: border-box;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px 0 0 4px;
+}
+
+input[type="submit"] {
+    flex: 2;
+    /* 20% of the total width */
+    background-color: #4caf50;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+}
+
+input {
+    margin-top: 5px;
 }
 
 /* Adjust styles for smaller screens */

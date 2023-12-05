@@ -34,7 +34,7 @@ app.post("/remove", (req, res) => {
   removeElementFromArray(todos, newData);
   console.log("new Arrayliste: " + todos);
 
-  res.render("index.ejs", { todos, todosCompleted });
+  res.redirect('/');
 
 });
 
@@ -46,7 +46,7 @@ app.post("/delete", (req, res) => {
   removeElementFromArray(todosCompleted, newData);
   console.log("new completed Arrayliste: " + todosCompleted);
 
-  res.render("index.ejs", { todos, todosCompleted });
+  res.redirect('/');
 
 });
 

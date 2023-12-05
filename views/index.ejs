@@ -14,16 +14,16 @@
         <% if (locals.todos.length> 0) { %>
           <% todos.forEach(todo=> { %>
             <li>
-              <form action="/remove" method="POST">
-                <input type="text" id="text" name="text" value="<%= todo %>">
-                <input type="submit" id="button" value="completed">
+              <form class="container-form" action="/remove" method="POST">
+                <input class="left-box-form" type="text" name="text" value="<%= todo %>">
+                <input class="right-box-form" type="submit" value="completed">
               </form>
             </li>
             <%});%>
-              <% } else { %>
-                <li>todos not set right now</li>
-                <% } %>
       </ul>
+      <% } else { %>
+        <p>todos not set right now</p>
+        <% } %>
     </div>
 
     <div class="box right-box">
@@ -32,16 +32,17 @@
         <% if (locals.todosCompleted.length> 0) { %>
           <% todosCompleted.forEach(todo=> { %>
             <li>
-              <form action="/delete" method="POST">
-                <input type="text" id="text" name="text" value="<%= todo %>">
-                <input type="submit" id="button" value="delete">
+              <form class="container-form" action="/delete" method="POST">
+                <input class="left-box-form" type="text" name="text" value="<%= todo %>">
+                <input class="right-box-form" type="submit" value="delete">
               </form>
             </li>
             <%});%>
-              <% } else { %>
-                <li>todos not set right now</li>
-                <% } %>
+              
       </ul>
+      <% } else { %>
+        <p>todos not set right now</p>
+        <% } %>
     </div>
   </div>
 
