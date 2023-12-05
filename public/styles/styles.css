@@ -67,15 +67,17 @@ input[type="text"] {
     /* 80% of the total width */
     box-sizing: border-box;
     padding: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid hotpink;
+    background-color: #333;
+    color: hotpink;
     border-radius: 4px 0 0 4px;
 }
 
 input[type="submit"] {
     flex: 2;
     /* 20% of the total width */
-    background-color: #4caf50;
-    color: white;
+    background-color: hotpink;
+    color: #333;
     padding: 10px;
     border: none;
     border-radius: 0 4px 4px 0;
