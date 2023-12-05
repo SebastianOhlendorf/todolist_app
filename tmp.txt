@@ -1,0 +1,11 @@
+  <ul>
+    <% if (locals.todo.length > 0) { %>
+      <% todo.forEach(todo=> { %>
+        <li>
+          <%= todo %>
+        </li>
+        <%});%>
+          <% } else { %>
+            <li>no ToDo set right now</li>
+            <% } %>
+  </ul>

@@ -1,0 +1,48 @@
+<%- include("partials/header.ejs") %>
+
+  <h1>ToDo-List</h1>
+
+  <form action="/submit" method="POST">
+    <input type="text" id="text" name="text" placeholder="What is your todos?">
+    <input type="submit" id="button" value="Add">
+  </form>
+
+  <div class="container">
+    <div class="box left-box">
+      <h2>Current open todoss</h2>
+      <ul>
+        <% if (locals.todos.length > 0) { %>
+          <% todos.forEach(todo => { %>
+            <li>
+              <form action="/remove" method="POST">
+                <input type="text" id="text" name="text" value="<%= todo %>">
+                <input type="submit" id="button" value="completed">
+              </form>
+            </li>
+            <%});%>
+              <% } else { %>
+                <li>todos not set right now</li>
+                <% } %>
+      </ul>
+    </div>
+
+    <div class="box right-box">
+      <h2>Completed todoss</h2>
+      <ul>
+        <% if (locals.todosCompleted.length > 0) { %>
+          <% todosCompleted.forEach(todo => { %>
+            <li>
+              <form action="/delete" method="POST">
+                <input type="text" id="text" name="text" value="<%= todo %>">
+                <input type="submit" id="button" value="delete">
+              </form>
+            </li>
+            <%});%>
+              <% } else { %>
+                <li>todos not set right now</li>
+                <% } %>
+      </ul>
+    </div>
+  </div>
+
+  <%- include("partials/footer.ejs") %>
