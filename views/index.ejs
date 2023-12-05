@@ -14,10 +14,50 @@
         <% if (locals.todos.length> 0) { %>
           <% todos.forEach(todo=> { %>
             <li>
-              <form class="container-form" action="/remove" method="POST">
-                <input class="left-box-form" type="text" name="text" value="<%= todo %>">
-                <input class="right-box-form" type="submit" value="completed">
+              <form id="todoForm" action="/remove" method="POST">
+                <input type="text" name="text" value="<%= todo %>" readonly>
+                <input type="submit" value="finish">
+                <input type="button" value="update" onclick="handleUpdateClick()">
               </form>
+
+              <script>
+                function handleUpdateClick() {
+                  // Get the form element
+                  const form = document.getElementById('todoForm');
+
+                  // Change the form structure
+                  form.innerHTML = `
+                  <div class="form-container">
+                    <p>Refresh the value!</p>
+                  <div class="form-row">
+                    <input type="text" id="oldText" name="oldText" placeholder="Current ToDo" value="<%= todo %>" readonly>
+                    <input type="button" value="cancle" onclick="handleCancelClick()">
+                  </div>
+                  <div class="form-row row2">
+                    <input type="text" id="newText" name="newText" placeholder="Enter your new ToDo">
+                    <input type="submit" value="update"> 
+                  </div>
+                </div>
+                  `;
+                  // Change the form action
+                  form.action = "/update";
+                }
+
+                function handleCancelClick() {
+                  // Get the form element
+                  const form = document.getElementById('todoForm');
+
+                  // Change the form structure
+                  form.innerHTML = `
+                    <input type="text" name="text" value="<%= todo %>" readonly>
+                    <input type="submit" value="finish">
+                    <input type="button" value="update" onclick="handleUpdateClick()">
+                  `;
+                  // Change the form action
+                  form.action = "/remove";
+                }
+
+              </script>
             </li>
             <%});%>
       </ul>
@@ -32,13 +72,30 @@
         <% if (locals.todosCompleted.length> 0) { %>
           <% todosCompleted.forEach(todo=> { %>
             <li>
-              <form class="container-form" action="/delete" method="POST">
-                <input class="left-box-form" type="text" name="text" value="<%= todo %>">
-                <input class="right-box-form" type="submit" value="delete">
+              <form id="todoForm2" action="/delete" method="POST">
+                <input class="left-box-form" type="text" name="text" value="<%= todo %>" readonly>
+                <input class="right-box-form" type="submit" value="delete">                
+                <input type="button" value="todo" onclick="handleSubmitClick()">
               </form>
+
+              <script>
+                function handleSubmitClick() {
+                  // Get the form element
+                  const form = document.getElementById('todoForm2');
+
+                  // Change the form structure
+                  form.innerHTML = `
+                    <input type="text" id="text" name="text" placeholder="Current ToDo" value="<%= todo %>" readonly>
+                    <input type="submit" value="back to ToDo">
+                  `;
+                  // Change the form action
+                  form.action = "/submit/back";
+                }
+
+              </script>
             </li>
             <%});%>
-              
+
       </ul>
       <% } else { %>
         <p>todos not set right now</p>
