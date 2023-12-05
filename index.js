@@ -18,7 +18,7 @@ app.post("/submit", (req, res) => {
 
   const newData = req.body.text;
 
-  if (typeof newData === "string" && newData.length === 0) {
+  if (typeof newData === "string" && newData.length > 0) {
     todos.push(newData);
     console.log("aktuelle Arrayliste: " + todos);
   }
@@ -30,7 +30,7 @@ app.post("/remove", (req, res) => {
 
   const newData = req.body.text;
 
-  if (typeof newData === "string" && newData.length === 0) {
+  if (typeof newData === "string" && newData.length > 0) {
     todosCompleted.push(newData);
   console.log("completed Arrayliste: " + todosCompleted);
 
@@ -46,7 +46,7 @@ app.post("/delete", (req, res) => {
 
   const newData = req.body.text;
 
-  if (typeof newData === "string" && newData.length === 0) {
+  if (typeof newData === "string" && newData.length > 0) {
     // Remove the element with value from the body from the array
   removeElementFromArray(todosCompleted, newData);
   console.log("new completed Arrayliste: " + todosCompleted);
