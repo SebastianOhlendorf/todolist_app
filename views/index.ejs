@@ -9,10 +9,10 @@
 
   <div class="container">
     <div class="box left-box">
-      <h2>Current open todoss</h2>
+      <h2>Current open todos</h2>
       <ul>
-        <% if (locals.todos.length > 0) { %>
-          <% todos.forEach(todo => { %>
+        <% if (locals.todos.length> 0) { %>
+          <% todos.forEach(todo=> { %>
             <li>
               <form action="/remove" method="POST">
                 <input type="text" id="text" name="text" value="<%= todo %>">
@@ -27,10 +27,10 @@
     </div>
 
     <div class="box right-box">
-      <h2>Completed todoss</h2>
+      <h2>Completed todos</h2>
       <ul>
-        <% if (locals.todosCompleted.length > 0) { %>
-          <% todosCompleted.forEach(todo => { %>
+        <% if (locals.todosCompleted.length> 0) { %>
+          <% todosCompleted.forEach(todo=> { %>
             <li>
               <form action="/delete" method="POST">
                 <input type="text" id="text" name="text" value="<%= todo %>">
